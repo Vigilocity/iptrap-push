@@ -178,7 +178,7 @@ fn main() {
         ()
     });
     let zmq_ctx = zmq::Context::new();
-    let mut zmq_socket = zmq_ctx.socket(zmq::SocketType::PUB).unwrap();
+    let mut zmq_socket = zmq_ctx.socket(zmq::SocketType::PUSH).unwrap();
     let _ = zmq_socket.set_linger(1);
     let _ = zmq_socket.bind(&format!("tcp://0.0.0.0:{}", STREAM_PORT));
     let updater = coarsetime::Updater::new(1000).start().unwrap();
